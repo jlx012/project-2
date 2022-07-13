@@ -26,9 +26,10 @@ Models
  ERD
 
 Route Table
+ -------
  Name | Path | HTTP | Purpose
- ----   ----   ----   ----------
- Index | /songtunes | GEs4T | Displays a front page with create account, login
+ | ---- | :----: |  :----: | ----------: |
+ Index | /songtunes | GET | Displays a front page with create account, login
  New | /songtunes/new | GET | Display a account creation page
  Create | /songtunes | POST | Adds an account to the app
  Show | /songtunes/:id | GET | Display accounts page
