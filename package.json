@@ -1,0 +1,25 @@
+{
+  "name": "musicapp",
+  "version": "1.0.0",
+  "description": "User Stories As a user:  1. Create an account with username and password to use app.  2. Log in to account with username and password to use app.  3. View multiple pages such homepage, favorites page, playlist page.  4. Be able to add a song to your playlist  5. Be able to favorite a song  6. Be able to remove song from playlist  7. be able to remove song from favorites  8. Be able to rate a song?  9. Be able to favorite a artist?  10. Rate an artist / song  11. like an artist / song",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlx012/project-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlx012/project-2/issues"
+  },
+  "homepage": "https://github.com/jlx012/project-2#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "liquid": "^5.1.1",
+    "liquid-express-views": "^1.0.8",
+    "mongoose": "^6.4.4"
+  }
+}

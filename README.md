@@ -1,4 +1,7 @@
 # project-2
+Elevator Pitch :
+A music app where a user can find songs, look up their lyrics, like and favorite them, add them to their playlist.
+
 User Stories
 As a user:
  1. Create an account with username and password to use app.
@@ -24,6 +27,7 @@ Models
  5. Favorites List?
 
  ERD
+  ![Alt text](./images/erd.jpg)
 
 Route Table
  -------
@@ -35,14 +39,14 @@ Route Table
  Show | /songtunes/:id | GET | Display accounts page
  Edit | /songtunes/:id/edit | GET | Display edit page to edit account info
  Update | /songtunes/:id | PUT | Updates account info
- | ---- | :----: |  :----: | ----------: |
+
  Index | /songtunes/artists | GET | Displays a page with every artist
  Index | /songtunes/songs | GET | Displays a page with every song
  Index | /songtunes/artist | GET | Displays a page with specific artist and their songs
  Index | /songtunes/song | GET | Displays a page with specific song
  Index | /songtunes/genres | GET | Displays a page with list of song genres
  Index | /songtunes/genre | GET | Displays a list of songs from a specific genre
-
+ | ---- | :----: |  :----: | ----------: |
  Index | /songtunes/:id/playlist | GET | Displays playlist page
  
 
