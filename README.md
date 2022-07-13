@@ -35,7 +35,7 @@ Route Table
  Show | /songtunes/:id | GET | Display accounts page
  Edit | /songtunes/:id/edit | GET | Display edit page to edit account info
  Update | /songtunes/:id | PUT | Updates account info
- 
+ | ---- | :----: |  :----: | ----------: |
  Index | /songtunes/artists | GET | Displays a page with every artist
  Index | /songtunes/songs | GET | Displays a page with every song
  Index | /songtunes/artist | GET | Displays a page with specific artist and their songs
