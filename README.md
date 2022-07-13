@@ -10,7 +10,8 @@ As a user:
  7. be able to remove song from favorites
  8. Be able to rate a song?
  9. Be able to favorite a artist?
- 10. Rate an artist
+ 10. Rate an artist / song
+ 11. like an artist / song
 
 API
 Looking to use either spotify api https://developer.spotify.com/ , napster api https://developer.prod.napster.com/ , or create seeded list
@@ -24,10 +25,10 @@ Models
 
  ERD
 
- Route Table
+Route Table
  Name | Path | HTTP | Purpose
  ----   ----   ----   ----------
- Index | /songtunes | GET | Displays a front page with create account, login
+ Index | /songtunes | GEs4T | Displays a front page with create account, login
  New | /songtunes/new | GET | Display a account creation page
  Create | /songtunes | POST | Adds an account to the app
  Show | /songtunes/:id | GET | Display accounts page
@@ -43,6 +44,11 @@ Models
 
  Index | /songtunes/:id/playlist | GET | Displays playlist page
  
+
+ Wireframes
+
+ ![Alt text](./images/wireframe1.jpg)
+ ![Alt text](./images/wireframe2.jpg)
 
 
 
