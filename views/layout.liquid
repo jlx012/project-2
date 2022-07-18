@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div>
+                <a href="/songify" class="navbar-brand">Songify</a>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <a href="/songify/:id" >My Account</a>
+                    <a href="/users/:id/playlists" >Playlists</a>
+                    <a href="/users/:id/favorites" >Favorites</a>
+                    <a href="/songify/artists" >Artists</a>
+                    <a href="/songify/songs" >Songs</a>
+                    <a href="/users/signup" >Sign Up</a>
+                    <a href="/users/login" >Log In</a>
+                    <a href="/users/logout" >Log Out</a>
+                </div>
+            </div>
+        </nav>
+            {% block content %}
+            my content
+            {% endblock %}
+        <script src="" async defer></script>
+    </body>
+</html>

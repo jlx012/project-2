@@ -4,7 +4,7 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 // const fruitRoutes = require('./controller/fruit_routes')
-// const userRoutes = require('./controller/user_routes')
+const userRoutes = require('./controllers/user_routes')
 // const commentRoutes = require('./controller/comment_routes')
 
 const app = require('liquid-express-views')(express())
@@ -21,22 +21,22 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')
 
 // here's the middleware that sets up our sessions
-// app.use(
-// 	session({
-// 		secret: process.env.SECRET,
-// 		store: MongoStore.create({
-// 			mongoUrl: process.env.DATABASE_URI
-// 		}),
-// 		saveUninitialized: true,
-// 		resave: false
-// 	})
-// )
+app.use(
+	session({
+		secret: process.env.SECRET,
+		store: MongoStore.create({
+			mongoUrl: process.env.DATABASE_URI
+		}),
+		saveUninitialized: true,
+		resave: false
+	})
+)
 
 ////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
 // app.use('/fruits', fruitRoutes)
-// app.use('/users', userRoutes)
+app.use('/users', userRoutes)
 // app.use('/comments', commentRoutes)
 
 // localhost:3000/
