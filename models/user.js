@@ -38,11 +38,11 @@ const userSchema = new Schema({
           "Please fill a valid email address",
         ],
     },
-    firstName: {
+    firstname: {
         type: String,
         required: true,
     },
-    lastName: {
+    lastname: {
         type: String,
         required: true,
     },
@@ -50,6 +50,15 @@ const userSchema = new Schema({
         type: Date,
         required: true,
         trim: true
+    },
+    likedsongs: {
+        type: String,
+    },
+    favorites: {
+        type: String,
+    },
+    playlists: {
+        type: String,
     }
 })
 

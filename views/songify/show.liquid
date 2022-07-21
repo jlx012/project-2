@@ -1,0 +1,13 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+    <div class="container-md">
+        <article>
+            <h2>Song: {{song.title}}</h2>
+            <h3>Artist: {{song.artist}}</h3>
+            <h3>Genre: {{song.genre}}</h4>
+        <div class="btn-group">
+            <a href="/songify/{{song._id}}/edit" class="btn btn-primary">Edit Song</a>
+        </div>
+    </div>
+{% endblock %}

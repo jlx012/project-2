@@ -1,0 +1,38 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+    <div >
+        <form action="/songify/{{song._id}}?_method=PUT" method="POST">
+            <fieldset>
+                <legend>Edit This Song</legend>
+                <label>Artist:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    artist="name" 
+                    placeholder="Enter Artist Name"
+                    value="{{song.artist}}"
+                >
+                <label>Title:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    title="title" 
+                    placeholder="Enter Song Title"
+                    value="{{song.title}}"
+                >
+                <label>Genre:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    genre="genre" 
+                    placeholder="Enter Genre"
+                    value="{{song.genre}}"
+                >
+                <div class="btn-group">
+                    <input type="submit" value="Edit Song" class="btn btn-success">
+                    <a href="/songify" class="btn btn-warning">Cancel</a>
+                </div>
+        </form>
+    </div>
+{% endblock %}
