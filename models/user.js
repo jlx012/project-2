@@ -1,13 +1,6 @@
-///////////////////////////////////////
-// First, import dependencies
-///////////////////////////////////////
+
 const mongoose = require('./connection')
 
-///////////////////////////////////////
-// define our user model
-///////////////////////////////////////
-// pull the schema and model constructors from mongoose
-// here, we'll use destructuring syntax to accomplish this
 const { Schema, model } = mongoose
 
 const validateEmail = (email) => {
@@ -15,7 +8,6 @@ const validateEmail = (email) => {
     return re.test(email);
 }
 
-// make a user schema
 const userSchema = new Schema({
     username: {
         type: String,
@@ -62,11 +54,6 @@ const userSchema = new Schema({
     }
 })
 
-// make a user model with the userSchema
 const User = model('User', userSchema)
 
-
-///////////////////////////////////////
-// export our user model
-///////////////////////////////////////
 module.exports = User

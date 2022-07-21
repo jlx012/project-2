@@ -15,6 +15,10 @@ const songSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    album: {
+        type: String,
+        require: true
+    },
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
