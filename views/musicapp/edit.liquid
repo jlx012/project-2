@@ -2,7 +2,7 @@
 
 {% block content %}
     <div >
-        <form action="/songify/{{song._id}}?_method=PUT" method="POST">
+        <form action="/musicapp/{{song._id}}?_method=PUT" method="POST">
             <fieldset>
                 <legend>Edit This Song</legend>
                 <label>Artist:</label>
@@ -29,10 +29,29 @@
                     placeholder="Enter Genre"
                     value="{{song.genre}}"
                 >
+                <label>Album:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="album" 
+                    placeholder="Enter Album Name"
+                    value="{{song.album}}"
+                >
+                <label>Image:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="image" 
+                    placeholder="Enter Image URL"
+                    value="{{song.image}}"
+                >
                 <div class="btn-group">
                     <input type="submit" value="Edit Song" class="btn btn-success">
-                    <a href="/songify" class="btn btn-warning">Cancel</a>
+                    <a href="/musicapp" class="btn btn-warning">Cancel</a>
                 </div>
+        </form>
+        <form action="/musicapp/{{song._id}}?_method=DELETE" method="POST">
+            <input type="submit" value="Delete" class="btn btn-danger">
         </form>
     </div>
 {% endblock %}

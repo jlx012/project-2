@@ -19,6 +19,7 @@ const songSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    image: String,
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'

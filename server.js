@@ -30,7 +30,7 @@ app.use(
 	})
 )
 
-app.use('/songify', songRoutes)
+app.use('/musicapp', songRoutes)
 app.use('/users', userRoutes)
 app.use('./playlists', playlistRoutes)
 
@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
 	res.redirect('/users/login')
 })
 
-const PORT = process.env.PORT
-app.listen(PORT, () => {
-	console.log(`app is listening on port: ${PORT}`)
-})
+// const PORT = process.env.PORT
+// app.listen(PORT, () => {
+// 	console.log(`app is listening on port: ${PORT}`)
+// })
 
 app.listen(process.env.PORT || 3000)

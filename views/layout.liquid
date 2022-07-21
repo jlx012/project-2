@@ -12,14 +12,14 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
-                <a href="/songify" class="navbar-brand mb-0 h1" >Songify</a>
+                <a href="/musicapp" class="navbar-brand mb-0 h1"><img src="https://i.pinimg.com/originals/59/f9/31/59f93175ba67187444ad6ae3b35e040f.png" height="45" width="45">MusicApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a href="/users/{{ user._id }}" class="nav-link">My Account</a>
+                            <a href="/mine" class="nav-link">My Account</a>
                         </li>
                         <li class="nav-item active">
                             <a href="/playlists/new" class="nav-link">Create Playlist</a>
@@ -47,6 +47,5 @@
             {% block content %}
             my content
             {% endblock %}
-        <script src="" async defer></script>
     </body>
 </html>

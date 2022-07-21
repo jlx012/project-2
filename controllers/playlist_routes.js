@@ -4,26 +4,25 @@ const User = require('../models/user')
 const Song = require('../models/song')
 const router = require('./user_routes')
 
-// router.post("/new", async (req, res) => {
-//     const user = await User.findById(req.user._id)
-//     const playList = await Playlist({ ...req.body, user: user._id }).save();
-//     user.playlists.push(playList._id);
-//     await user.save();
-//     res.send({ data: playList })
-// })
+router.get('/new', (req, res) => {
+    const username = req.session.username
+    res.render('playlists/new', { username })
+})
 
-router.get('/playlists/:id', (req, res) => {
+router.get('/mine/:id', (req, res) => {
     res.render('playlists/show')
 })
 
-router.get('/playlists/new', (req, res) => {
-    const username = req.session.username
-    const loggedIn = req.session.loggedIn
-    res.render('playlists/new', { username, loggedIn })
-})
+router.get('/mine', (req, res) => {
+    const ObjectId = req.session.userId
 
-router.get('/playlists', (req, res) => {
-    res.render('playlists/index')
+    Playlist.find({ owner: ObjectId })
+        .then(playlists => {
+            res.render('playlists/index', { playlists, ObjectId })
+        })
+        .catch(err => {
+            res.json(err)
+        })
 })
 
 module.exports = router

@@ -1,7 +1,12 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-    <div>
-        
+    <h1>{{playlist.name}}</h1>
+    <div class="row">
+        {% for song in playlist.song %}
+        <div>
+            <h5 class="card-title"><a href="/musicapp/{{song._id}}" class="btn btn-success">{{song.title}}</a></h5>
+        </div>
+        {% endfor %}
     </div>
 {% endblock %}

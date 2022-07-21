@@ -1,19 +1,17 @@
 const mongoose = require('mongoose')
 // const Song = require('./song')
 
-const ObjectId = mongoose.Schema.Types.ObjectId;
-
 const playlistSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    songs: {
-        type: Array,
-        default: []
+    song: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Song'
     },
     owner: {
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
 }, {

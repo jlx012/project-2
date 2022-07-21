@@ -2,7 +2,7 @@
 
 {% block content %}
     <div >
-        <form action="/songify" method="POST">
+        <form action="/musicapp" method="POST">
             <fieldset>
                 <legend>Create A New Song</legend>
                 <label>Artist:</label>
@@ -25,6 +25,20 @@
                     type="text" 
                     name="genre" 
                     placeholder="Enter Genre"
+                >
+                <label>Album:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="album" 
+                    placeholder="Enter Album Name"
+                >
+                <label>Image:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="image" 
+                    placeholder="Enter Image URL"
                 >
             <input 
                 type="submit" 

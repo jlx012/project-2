@@ -6,6 +6,18 @@ const bcrypt = require('bcryptjs')
 
 const router = express.Router()
 
+router.get('/mine', (req, res) => {
+    const ObjectId = req.params.id;
+    
+    User.findById(ObjectId)
+        .then(user => {
+            res.render('users/show', { user })
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
 router.get('/signup', (req, res) => {
     res.render('users/signup')
 })
@@ -49,7 +61,7 @@ router.post('/login', async (req, res) => {
                     req.session.loggedIn = true
                     req.session.userId = user._id
                     console.log('this is the session after login', req.session)
-                    res.redirect('/songify')
+                    res.redirect('/musicapp')
                 } else {
                     res.json({ error: 'username or password incorrect' })
                 }
@@ -70,18 +82,6 @@ router.get('/logout', (req, res) => {
         console.log(req.session)
         res.redirect('/users/login')
     })
-})
-
-router.get('/:id', (req, res) => {
-    const ObjectId = req.params.id;
-    
-    User.findById(ObjectId)
-        .then(user => {
-            res.render('users/show', { user })
-        })
-        .catch(err => {
-            res.json(err)
-        })
 })
 
 module.exports = router

@@ -1,0 +1,23 @@
+{% layout 'layout.liquid' %}
+
+{% block content %}
+    <div class="container-md">
+        <form action="/playlists/mine" method="POST">
+            <fieldset>
+                <legend>Create a new Playlist</legend>
+                <label class="form-label">Name:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="name" 
+                    placeholder="Enter Playlist Name"
+                >
+            </fieldset>
+            <input 
+            type="submit" 
+            value="Create New Playlist" 
+            class="btn btn-success"
+            >
+        </form>
+    </div>
+{% endblock %}
