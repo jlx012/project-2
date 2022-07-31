@@ -3,10 +3,6 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-const userRoutes = require('./controllers/user_routes')
-const songRoutes = require('./controllers/song_routes')
-const playlistRoutes = require('./controllers/playlist_routes')
-
 const app = require('liquid-express-views')(express())
 
 app.use(morgan('tiny'))
@@ -17,6 +13,10 @@ app.use(express.static('public'))
 
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+
+const songRoutes = require('./controllers/song_routes')
+const userRoutes = require('./controllers/user_routes')
+const playlistRoutes = require('./controllers/playlist_routes')
 
 
 app.use(
@@ -30,17 +30,18 @@ app.use(
 	})
 )
 
-app.use('/musicapp', songRoutes)
+app.use('/playlists', playlistRoutes)
 app.use('/users', userRoutes)
-app.use('./playlists', playlistRoutes)
+app.use('/musicapp', songRoutes)
+
 
 app.get('/', (req, res) => {
 	res.redirect('/users/login')
 })
 
-// const PORT = process.env.PORT
-// app.listen(PORT, () => {
-// 	console.log(`app is listening on port: ${PORT}`)
-// })
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+	console.log(`app is listening on port: ${PORT}`)
+})
 
-app.listen(process.env.PORT || 3000)
+// app.listen(process.env.PORT || 3000)

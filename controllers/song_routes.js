@@ -17,6 +17,44 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+router.post('/create', (req, res) => {
+    const song = {
+        artist: req.body.artist,
+        title:  req.body.title,
+        genre:  req.body.genre,
+        album:  req.body.album,
+        image:  req.body.image
+    }
+    Song.create(song)
+        .then(song => {
+            Playlist.findById(req.body.playlist)
+                .then(playlist => {
+                    playlist.song.push(song._id)
+                    playlist.save()
+                    res.redirect(`/musicapp`)
+                })
+                .catch(err => {
+                    res.json(err)
+                })
+        }) 
+        .catch(err => {
+            res.json(err)
+        })
+}) 
+
+
+router.put('/:id', (req, res) => {
+    const songId = req.params.id
+
+    Song.findByIdAndUpdate(songId, req.body, { new: true })
+        .then(song => {
+            res.redirect(`/musicapp/${song._id}`)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
 router.get('/:id/edit', (req, res) => {
     const songId = req.params.id
     const userId = req.session.userId
@@ -34,19 +72,7 @@ router.get('/:id/edit', (req, res) => {
         })
 })
 
-router.put('/:id', (req, res) => {
-    const songId= req.params.id
-
-    Song.findByIdAndUpdate(songId, req.body, { new: true })
-        .then(song => {
-            res.redirect(`/musicapp/${song._id}`)
-        })
-        .catch(err => {
-            res.json(err)
-        })
-})
-
-router.get('/new', (req, res) => {
+router.get('/newSong', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
     res.render('musicapp/new', { username, loggedIn })

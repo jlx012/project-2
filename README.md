@@ -2,6 +2,36 @@
 Elevator Pitch :
 A music app where a user can find songs, look up their lyrics, like and favorite them, add them to their playlist.
 
+## Install Instructions
+
+Fork and clone this repository
+ - Install dependencies needed: npm i
+ - bcryptjs
+ - connect-mongo
+ - dotenv
+ - express
+ - express-session
+ - liquid-express-views
+ - method-override
+ - mongoose
+ - morgan
+ - node-fetch
+  
+Prepare the local host server
+ - Create a .env file in the root folder
+ - inside .env
+   - set PORT=3000
+   - if developing the app locally
+     - set the DATABASE_URI
+   - if developing online
+     - set MONGODB_URI
+
+Seed Database
+ - For local run npm run seed
+ - For heeroku
+   - Inside terminal, heroku run bash
+     - node bin/seed.js
+
 User Stories
 As a user:
  1. Create an account with username and password to use app.

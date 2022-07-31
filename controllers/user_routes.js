@@ -6,17 +6,17 @@ const bcrypt = require('bcryptjs')
 
 const router = express.Router()
 
-router.get('/mine', (req, res) => {
-    const ObjectId = req.params.id;
+// router.get('/mine', (req, res) => {
+//     const ObjectId = req.params.id;
     
-    User.findById(ObjectId)
-        .then(user => {
-            res.render('users/show', { user })
-        })
-        .catch(err => {
-            res.json(err)
-        })
-})
+//     User.findById(ObjectId)
+//         .then(user => {
+//             res.render('users/show', { user })
+//         })
+//         .catch(err => {
+//             res.json(err)
+//         })
+// })
 
 router.get('/signup', (req, res) => {
     res.render('users/signup')
