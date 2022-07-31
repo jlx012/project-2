@@ -21,14 +21,14 @@ Prepare the local host server
  - Create a .env file in the root folder
  - inside .env
    - set PORT=3000
-   - if developing the app locally
+   - if app is local
      - set the DATABASE_URI
    - if developing online
      - set MONGODB_URI
 
 Seed Database
- - For local run npm run seed
- - For heeroku
+ - For local inside terminal npm run seed
+ - For heroku
    - Inside terminal, heroku run bash
      - node bin/seed.js
 
