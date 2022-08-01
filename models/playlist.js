@@ -1,23 +1,22 @@
-const mongoose = require('mongoose')
+const mongoose = require('./connection')
 // const Song = require('./song')
+const { Schema, model } = mongoose
 
 const playlistSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    song: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Song'
-    },
+    name: String,
+    description: String,
     owner: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    song: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Song'
+    }],
 }, {
     timestamps: true
 })
 
-const Playlist = mongoose.model("playlist", playlistSchema)
+const Playlist = model('Playlist', playlistSchema)
 
 module.exports = Playlist

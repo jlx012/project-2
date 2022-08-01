@@ -17,6 +17,44 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+router.post('/create', (req, res) => {
+    const song = {
+        artist: req.body.artist,
+        title:  req.body.title,
+        genre:  req.body.genre,
+        album:  req.body.album,
+        image:  req.body.image
+    }
+    Song.create(song)
+        .then(song => {
+            Playlist.findById(req.body.list)
+                .then(playlist => {
+                    playlist.song.push(song._id)
+                    playlist.save()
+                    res.redirect(`/playlists/mine/${playlist._id}`)
+                })
+                .catch(err => {
+                    res.json(err)
+                })
+        }) 
+        .catch(err => {
+            res.json(err)
+        })
+}) 
+
+
+router.put('/:id', (req, res) => {
+    const songId = req.params.id
+
+    Song.findByIdAndUpdate(songId, req.body, { new: true })
+        .then(song => {
+            res.redirect(`/musicapp/${song._id}`)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
 router.get('/:id/edit', (req, res) => {
     const songId = req.params.id
     const userId = req.session.userId
@@ -34,19 +72,7 @@ router.get('/:id/edit', (req, res) => {
         })
 })
 
-router.put('/:id', (req, res) => {
-    const songId= req.params.id
-
-    Song.findByIdAndUpdate(songId, req.body, { new: true })
-        .then(song => {
-            res.redirect(`/musicapp/${song._id}`)
-        })
-        .catch(err => {
-            res.json(err)
-        })
-})
-
-router.get('/new', (req, res) => {
+router.get('/newSong', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
     res.render('musicapp/new', { username, loggedIn })
@@ -67,11 +93,18 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    if (req.session.username) {
+    const userId = req.session.username
+    if (userId) {
         // const api_key = 'http://ws.audioscrobbler.com/2.0/?api_key=dea536b213d6fe9210d196b96ad1040e&format=json'
         Song.find({})
             .then(songs => {
-                res.render('musicapp/index', { songs })
+                Playlist.find({})
+                    .then(playlists => {
+                        res.render('musicapp/index', { songs, playlists, userId })
+                    })
+                    .catch(err => {
+                        res.json(err)
+                    })
             })
             .catch(err => {
                 res.json(err)
