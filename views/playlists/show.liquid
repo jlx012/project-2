@@ -4,9 +4,20 @@
     <h1>{{playlist.name}}</h1>
     <div class="row">
         {% for song in playlist.song %}
-        <div>
-            <h5 class="card-title"><a href="/musicapp/{{song._id}}" class="btn btn-success">{{song.title}}</a></h5>
-        </div>
+            <div class="card" style="width: 18rem">
+                <a href="/musicapp/{{song._id}}" class="btn"><h5 class="card-header">Song: {{song.title}}</h5></a>
+                <div class="card-body">
+                    <img src="{{ song.image }}">
+                    <h6 class="card-title">Artist: {{song.artist}}</h5>
+                    <h6 class="card-title">Genre: {{song.genre}}</h5>
+                    <h6 class="card-title">Album: {{song.album}}</h5>
+                </div>
+                <div class="col-md-4">   
+                    <form action="/musicapp/{{song._id}}?_method=DELETE" method="POST">
+                        <input type="submit" value="Remove From Playlist">
+                    </form>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

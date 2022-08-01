@@ -13,10 +13,32 @@
                         <h6 class="card-title">Genre: {{song.genre}}</h5>
                         <h6 class="card-title">Album: {{song.album}}</h5>
                     </div>
-                    <div>
-                        <a href="" class="btn">Add to Playlist</a>
-                        <a href="" class="btn">Favorite It!</a>
+                    <div class="row g-0 align-items-end" id="list-button">
+                        <div class="col-sm-8">
+                            <form action="/musicapp/create" method="POST">
+                                <input type="hidden" name="artist" value={{song.artist}}>
+                                <input type="hidden" name="title" value={{song.title}}>
+                                <input type="hidden" name="genre" value={{song.genre}}>
+                                <input type="hidden" name="album" value={{song.album}}>
+                                <input type="hidden" name="image" value={{song.image}}>
+                                <label>Select Playlist</label>
+                                    <select name="list">
+                                        {% for playlist in playlists %}
+                                            <option value={{playlist._id}}>{{playlist.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                        </div>
+                                <div class="col-sm-4">
+                                    <input type="submit" 
+                                        value="Add" 
+                                        class="btn btn-success btn-sm"
+                                        style="width: 50px" 
+                                    >                               
+                                </div>
+                            </form>
+
                     </div>
+                    
                 </div>
             {% endfor %}
         </div>
