@@ -6,18 +6,6 @@ const bcrypt = require('bcryptjs')
 
 const router = express.Router()
 
-// router.get('/mine', (req, res) => {
-//     const ObjectId = req.params.id;
-    
-//     User.findById(ObjectId)
-//         .then(user => {
-//             res.render('users/show', { user })
-//         })
-//         .catch(err => {
-//             res.json(err)
-//         })
-// })
-
 router.get('/signup', (req, res) => {
     res.render('users/signup')
 })
@@ -45,6 +33,12 @@ router.post('/signup', async (req, res) => {
 
 router.get('/login', (req, res) => {
     res.render('users/login')
+})
+
+router.get('/account', (req, res) => {
+    let userId = req.session.userId
+
+    res.render('users/show', { userId })
 })
 
 router.post('/login', async (req, res) => {

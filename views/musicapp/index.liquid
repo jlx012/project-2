@@ -16,11 +16,11 @@
                     <div class="row g-0 align-items-end" id="list-button">
                         <div class="col-sm-8">
                             <form action="/musicapp/create" method="POST">
-                                <input type="hidden" name="artist" value={{song.data.artist}}>
-                                <input type="hidden" name="title" value={{song.data.title}}>
-                                <input type="hidden" name="genre" value={{song.data.genre}}>
-                                <input type="hidden" name="album" value={{song.data.album}}>
-                                <input type="hidden" name="image" value={{song.data.images.jpg.image_url}}>
+                                <input type="hidden" name="artist" value={{song.artist}}>
+                                <input type="hidden" name="title" value={{song.title}}>
+                                <input type="hidden" name="genre" value={{song.genre}}>
+                                <input type="hidden" name="album" value={{song.album}}>
+                                <input type="hidden" name="image" value={{song.image}}>
                                 <label>Select Playlist</label>
                                     <select name="list">
                                         {% for playlist in playlists %}

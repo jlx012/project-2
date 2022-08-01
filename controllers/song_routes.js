@@ -27,11 +27,11 @@ router.post('/create', (req, res) => {
     }
     Song.create(song)
         .then(song => {
-            Playlist.findById(req.body.playlist)
+            Playlist.findById(req.body.list)
                 .then(playlist => {
                     playlist.song.push(song._id)
                     playlist.save()
-                    res.redirect(`/musicapp`)
+                    res.redirect(`/playlists/mine/${playlist._id}`)
                 })
                 .catch(err => {
                     res.json(err)
@@ -93,11 +93,18 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-    if (req.session.username) {
+    const userId = req.session.username
+    if (userId) {
         // const api_key = 'http://ws.audioscrobbler.com/2.0/?api_key=dea536b213d6fe9210d196b96ad1040e&format=json'
         Song.find({})
             .then(songs => {
-                res.render('musicapp/index', { songs })
+                Playlist.find({})
+                    .then(playlists => {
+                        res.render('musicapp/index', { songs, playlists, userId })
+                    })
+                    .catch(err => {
+                        res.json(err)
+                    })
             })
             .catch(err => {
                 res.json(err)

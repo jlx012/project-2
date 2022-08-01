@@ -9,10 +9,10 @@ const playlistSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    song: {
+    song: [{
         type: Schema.Types.ObjectId,
         ref: 'Song'
-    },
+    }],
 }, {
     timestamps: true
 })

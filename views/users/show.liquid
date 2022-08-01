@@ -1,7 +1,58 @@
 {% layout 'layout.liquid' %}
 
 {% block content %}
-    <div>
-        <h1>Route is working</h1>
+    <div class="container-md">
+        <form action="/users/{{user._id}}?_method=PUT" method="POST">
+            <fieldset>
+                <legend>{{}}'s Account Information</legend>
+                <h3>Please enter new account information below to make changes</h3>
+                <label class="form-label">Username:</label>
+                <input 
+                    type="text" 
+                    name="username" 
+                    class="form-control"
+                    placeholder="{{}}"
+                >
+                <label class="form-label">Password:</label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    class="form-control"
+                >
+                <label class="form-label">Email:</label>
+                <input 
+                    type="text" 
+                    name="email" 
+                    class="form-control"
+                    placeholder="{{}}"
+                >
+                <label class="form-label">First Name:</label>
+                <input 
+                    type="text" 
+                    name="firstname" 
+                    class="form-control"
+                    placeholder="{{}}"
+                >
+                <label class="form-label">Last Name:</label>
+                <input 
+                    type="text" 
+                    name="lastname" 
+                    class="form-control"
+                    placeholder="{{}}"
+                >
+                <label class="form-label">Birthdate:</label>
+                <input 
+                    type="date" 
+                    name="birthdate" 
+                    class="form-control"
+                    placeholder="{{}}"
+                >
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Edit Account" 
+                class="btn btn-success"
+            >
+        </form>
     </div>
 {% endblock %}
